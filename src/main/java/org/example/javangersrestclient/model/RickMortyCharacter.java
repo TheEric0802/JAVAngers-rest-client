@@ -1,8 +1,9 @@
 package org.example.javangersrestclient.model;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 
-@AllArgsConstructor
+@Data @AllArgsConstructor
 public class RickMortyCharacter {
 
     private int id;
