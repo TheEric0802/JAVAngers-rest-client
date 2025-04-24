@@ -6,4 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController @RequestMapping("/api/species-statistic") @RequiredArgsConstructor
 public class UserController {
+
+    private final UserService userService;
 }
