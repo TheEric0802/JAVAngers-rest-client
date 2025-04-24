@@ -2,10 +2,10 @@ package org.example.javangersrestclient.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.example.javangersrestclient.model.ReqresUser;
+import org.example.javangersrestclient.model.dto.ReqresCreatedUserDTO;
+import org.example.javangersrestclient.model.dto.ReqresNewUserDTO;
 import org.example.javangersrestclient.service.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,5 +17,10 @@ public class UserController {
     @GetMapping
     public List<ReqresUser> getAllUsers() {
         return userService.getAllUsers();
+    }
+
+    @PostMapping
+    public ReqresCreatedUserDTO createUser(@RequestBody ReqresNewUserDTO newUser) {
+        return userService.createUser(newUser);
     }
 }

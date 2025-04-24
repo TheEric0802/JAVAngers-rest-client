@@ -2,6 +2,9 @@ package org.example.javangersrestclient.service;
 
 import org.example.javangersrestclient.model.ReqresUser;
 import org.example.javangersrestclient.model.dto.ReqresAllUsersDTO;
+import org.example.javangersrestclient.model.dto.ReqresCreatedUserDTO;
+import org.example.javangersrestclient.model.dto.ReqresNewUserDTO;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
@@ -30,5 +33,9 @@ public class UserService {
         } while (currentPage <= totalPages);
 
         return result;
+    }
+
+    public ReqresCreatedUserDTO createUser(ReqresNewUserDTO newUser) {
+        return restClient.post().contentType(MediaType.APPLICATION_JSON).body(newUser).retrieve().body(ReqresCreatedUserDTO.class);
     }
 }
