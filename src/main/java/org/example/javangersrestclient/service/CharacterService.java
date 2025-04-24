@@ -31,4 +31,8 @@ public class CharacterService {
 
         return result;
     }
+
+    public RickMortyCharacter getCharacterById(int id) {
+        return restClient.get().uri("/" + id).retrieve().body(RickMortyCharacter.class);
+    }
 }
