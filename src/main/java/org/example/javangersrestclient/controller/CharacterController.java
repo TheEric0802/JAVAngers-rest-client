@@ -14,7 +14,7 @@ public class CharacterController {
 
     @GetMapping
     public List<RickMortyCharacter> getAllCharacters(@RequestParam (required = false) String status) {
-        return characterService.getAllCharacters(status);
+        return characterService.getAllCharacters(status, null);
     }
 
     @GetMapping("/{id}")

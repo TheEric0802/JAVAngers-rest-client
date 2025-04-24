@@ -16,10 +16,13 @@ public class CharacterService {
         this.restClient = restClientBuilder.baseUrl("https://rickandmortyapi.com/api/character").build();
     }
 
-    public List<RickMortyCharacter> getAllCharacters(String status) {
+    public List<RickMortyCharacter> getAllCharacters(String status, String species) {
         StringBuilder query = new StringBuilder();
         if (status != null) {
             query.append("&status=").append(status);
+        }
+        if (species != null) {
+            query.append("&species=").append(species);
         }
         int currentPage = 1;
         int totalPages = 0;
