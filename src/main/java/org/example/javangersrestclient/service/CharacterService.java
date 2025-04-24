@@ -16,13 +16,17 @@ public class CharacterService {
         this.restClient = restClientBuilder.baseUrl("https://rickandmortyapi.com/api/character").build();
     }
 
-    public List<RickMortyCharacter> getAllCharacters() {
+    public List<RickMortyCharacter> getAllCharacters(String status) {
+        StringBuilder query = new StringBuilder();
+        if (status != null) {
+            query.append("&status=").append(status);
+        }
         int currentPage = 1;
         int totalPages = 0;
         List<RickMortyCharacter> result = new java.util.ArrayList<>();
 
         do {
-            RickMortyAllCharactersDTO page = restClient.get().uri("/?page=" + currentPage).retrieve().body(RickMortyAllCharactersDTO.class);
+            RickMortyAllCharactersDTO page = restClient.get().uri("/?page=" + currentPage + query.toString()).retrieve().body(RickMortyAllCharactersDTO.class);
             assert page != null;
             totalPages = page.getInfo().getPages();
             currentPage++;

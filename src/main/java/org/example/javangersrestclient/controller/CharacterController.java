@@ -3,10 +3,7 @@ package org.example.javangersrestclient.controller;
 import lombok.RequiredArgsConstructor;
 import org.example.javangersrestclient.model.RickMortyCharacter;
 import org.example.javangersrestclient.service.CharacterService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -16,8 +13,8 @@ public class CharacterController {
     private final CharacterService characterService;
 
     @GetMapping
-    public List<RickMortyCharacter> getAllCharacters() {
-        return characterService.getAllCharacters();
+    public List<RickMortyCharacter> getAllCharacters(@RequestParam (required = false) String status) {
+        return characterService.getAllCharacters(status);
     }
 
     @GetMapping("/{id}")
