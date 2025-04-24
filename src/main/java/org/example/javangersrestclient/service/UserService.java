@@ -38,4 +38,8 @@ public class UserService {
     public ReqresCreatedUserDTO createUser(ReqresNewUserDTO newUser) {
         return restClient.post().contentType(MediaType.APPLICATION_JSON).body(newUser).retrieve().body(ReqresCreatedUserDTO.class);
     }
+
+    public void deleteUser(String id) {
+        restClient.delete().uri("/" + id).retrieve();
+    }
 }
