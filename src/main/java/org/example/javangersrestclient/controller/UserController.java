@@ -5,7 +5,7 @@ import org.example.javangersrestclient.service.UserService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController @RequestMapping("/api/species-statistic") @RequiredArgsConstructor
+@RestController @RequestMapping("/api/users") @RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;
